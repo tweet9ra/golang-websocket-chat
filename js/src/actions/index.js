@@ -54,11 +54,10 @@ export const wsNewMessage = message => dispatch => {
       }
       break;
     case 'NEW_MESSAGE':
-      dispatch({
+      return dispatch({
         type: 'NEW_MESSAGE',
         message: message.data
       })
-      break;
     default:
       break;
   }

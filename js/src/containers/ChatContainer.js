@@ -8,7 +8,7 @@ import ChatHistory from "../components/ChatHistory";
 import SendMessage from "../components/SendMessage";
 import {sendMessage} from "../helpers/wsConnection";
 
-const ChatContainer = ({chats, loadChatsIfNotLoaded}) => {
+const ChatContainer = ({chats, loadChatsIfNotLoaded, currentUserId}) => {
   const [selectedChatId, setSelectedChatId] = useState(chats && chats[0] ? chats[0].id : 0)
 
   if (!selectedChatId && chats) {
@@ -39,7 +39,7 @@ const ChatContainer = ({chats, loadChatsIfNotLoaded}) => {
       <div className="chat">
         <MessagesHeader chat={selectedChat}/>
 
-        <ChatHistory chat={selectedChat}/>
+        <ChatHistory chat={selectedChat} currentUserId={currentUserId}/>
 
         <SendMessage sendMessage={handleSendMessage}/>
       </div>
@@ -50,7 +50,8 @@ const ChatContainer = ({chats, loadChatsIfNotLoaded}) => {
 
 
 const mapStateToProps = state => ({
-    chats: state.chats
+    chats: state.chats,
+    currentUserId: state.auth.user.id,
 })
 
 const mapDispatchToProps = dispatch => ({

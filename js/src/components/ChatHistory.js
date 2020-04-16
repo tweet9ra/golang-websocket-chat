@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {connect} from "react-redux"
+const moment = require('moment')
 
 const ChatHistory = ({chat, currentUserId}) => {
   let messagesContainer
@@ -30,7 +30,7 @@ const ChatHistory = ({chat, currentUserId}) => {
               { showMessageHeader
                   ? <div className={'message-data ' + (message.user_id === currentUserId ? 'message-data-me' : '')}>
                     <span className="message-data-name">{usersById[message.user_id].email}</span>&nbsp;&nbsp;
-                    <span className="message-data-time">{message.created_at}</span>
+                    <span className="message-data-time">{moment(message.created_at).format("hh:mm:ss")}</span>
                   </div> : ''
               }
               <div
@@ -50,8 +50,4 @@ const ChatHistory = ({chat, currentUserId}) => {
   )
 }
 
-const mapStateToProps = state => ({
-  currentUserId: state.auth.user.id
-})
-
-export default connect(mapStateToProps)(ChatHistory)
+export default ChatHistory

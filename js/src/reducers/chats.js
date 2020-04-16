@@ -4,14 +4,13 @@ const chats = (state = [], action) => {
             return action.chats
         case 'NEW_MESSAGE':
             let message = action.message
-            state.map((chat) => {
+            return state.map((chat) => {
                 if (chat.id === message.chat_id) {
                     chat.messages.push(message)
                 }
                 chat.lastMessageId = message.id
                 return chat
             })
-            return state
         default:
             return state
     }
