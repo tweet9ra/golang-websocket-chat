@@ -1,0 +1,93 @@
+header, footer {
+    color: #434651;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 60px;
+}
+
+html {
+    .people-list ul {
+        height: 710px;
+    }
+}
+
+.logout {
+    text-align: center;
+
+    button {
+        color: #ffffff;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        background: transparent;
+        padding: 3px 5px;
+        border-radius: 5px;
+        &:hover {
+            background: #555763;
+        }
+    }
+}
+
+.selectChat {
+    cursor: pointer;
+    display: flex;
+    &:hover,
+    &.active {
+        background: #555763;
+    }
+}
+.people-list ul {
+    padding: 0 0 20px 0;
+}
+.people-list ul li {
+    margin-bottom: 0px;
+    padding: 10px 20px;
+    list-style: none;
+}
+
+.avatar {
+    border-radius: 228px;
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    border: 2px solid #6a6c74;
+    background-size: auto 51px;
+    background-position: center center !important;
+    background-repeat: no-repeat;
+}
+
+.chat-header {
+    display: flex;
+}
+
+.message-data {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.message-data-me {
+    flex-direction: row;
+}
+
+.chat .chat-history .message-data-time {
+    padding: 0;
+}
+
+.chat-history {
+    ul {
+        padding-left: 0;
+    }
+    li {
+        list-style: none;
+    }
+}
+
+.chat-history .message.hide-message-header{
+    margin-top: -20px;
+    &:after {
+        display: none;
+    }
+}
